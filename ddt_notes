@@ -1,0 +1,18 @@
+What is Data Driven Testing?
+Reading the data from external resource & run the test is called Data driven testing
+(parameterization)
+
+
+Why Data Driven Testing?
+As per the rule of the automation data shouldn’t not hardcoded(fixed) with in a test scripts, because
+data modification & maintenance is tedious job when you want to run the test with different data,
+instead we should get the data from external resource like xlsx, .properties file , db , XML, JSON, CMD
+Line Data
+
+
+What are the advantages of Data Driven Testing?
+1. Maintenance of the test data is easy
+2. Modification of the test data in external recourse is easy
+3. Cross browser /platform testing is easy (means change the browser in property File)
+4. Running test scripts in different Environment is easy
+5. Running test scripts in different credentials is easy

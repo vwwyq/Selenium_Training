@@ -1,0 +1,115 @@
+What is Unit Testing?
+•	A unit test is a way of testing a unit - the smallest piece of code that can be logically isolated in a system.
+•	In most programming languages, that is a function, a subroutine, a method or property.
+
+
+What do unit tests look like?
+•	A unit can be almost anything you want it to be -- a line of code, a method, or a class.
+•	Smaller tests give you a much more granular view of how your code is performing.
+•	There is also the practical aspect that when you test very small units, your tests can be run fast;
+    like a thousand tests in a second fast.
+
+
+Who Should Create the Unit Tests?
+•	The programmer who wrote the code will likely know how to access the parts that can be tested easily and how
+    to mock objects that can't be accessed otherwise.
+
+What is pytest? - The pytest framework makes it easy to write small tests using Python.
+
+Advantages of pytest
+•	Very easy to start with because of its simple and easy syntax.
+•	Can run tests in parallel.
+•	Can run a specific test or a subset of tests.
+•	Dependency test. Grouping of test methods.
+•	Generates report.
+
+#-----------------------------------------------------------------------------------------------
+
+Pytest Fixtures
+•	Pytest fixture is a callable (normally a function or a generator) decorated with inbuilt pytest decorator @fixture.
+•	Fixtures are used for dependency injection or to pass the data to the test functions.
+•	Fixtures are accessed by test functions by passing the name of the fixture to test functions as argument.
+•	Fixtures are used to run a piece of code repeatedly before and/or after every test method/class/module/session based on the defined scope.
+
+
+Syntax :
+1.	@pytest.fixture(attr)
+
+Attributes
+1.	Scope :
+    a.	sets the scope of fixture.
+    b.	by default – function
+    c.	types : Function, Class, Module, session
+
+
+    When we give scope="class", the fixture will be applied on a class level.
+    Before the execution of the entire class, setup operation will be performed
+    After the execution of the entire class, teardown operation will be performed
+
+    When we give scope="module", the fixture will be applied on a module(file) level.
+    Before the execution of the entire module, setup operation will be performed
+    After the execution of the entire module, teardown operation will be performed
+
+    Be default, scope="function"
+
+
+2.	autoUse :
+    a.	if True - fixture is applied to all tests
+    b.	if False - fixture needs to be explicitly called.
+    c.	By default - False
+
+
+3.	Params : takes list of parameters which are used to run fixture for multiple times
+
+#----------------------------------------------------------------------------------------------------
+Advantages of fixtures
+1.	Each test can be run independently irrespective of previous test method is failed or passed
+2.	Setup and teardown methods run irrespective of test's fail or pass
+3.	Many tests can share the same setup/teardown
+4.	Setup/Teardown in same function
+5.	Pass data to test with return or yield statement
+
+
+Setup and teardown method using fixtures
+    statements before yield keyword runs once before every test function and statements after yield
+    keyword run’s once after every test function. Thus fixture acting as setup and tear down method.
+
+#-----------------------------------------------------------------------------------------------
+
+conftest.py (sharing fixtures)
+•	Fixtures can be shared or re-used in different test methods and across multiple files through a special python file “conftest.py”
+•	The advantage of having the fixture in “conftest.py” is that you don’t have to import the fixture you want to use in each and every test.
+•	The fixture present in “conftest.py” automatically get discovered by pytest.
+•	Both conftest.py and the test module should be in the same package!
+•	If conftest.py is in other package than the test module, then conftest.py module will not be automatically discovered.
+•	Pytest checks if the conftest.py file is present in the current package.
+•	If it is not present, if checks at the project level.
+•	If there is a conftest.py file at project level, the fixture is automatically discovered.
+•	The discovery of fixture functions starts at test classes, then test modules, then conftest.py files.
+
+#--------------------------------------------------------------------------
+
+Batch execution :
+Right click --> open in --> terminal --> pytest -vs
+The above code will execute all the files in the pytest package. This we call it as Batch execution
+
+#------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

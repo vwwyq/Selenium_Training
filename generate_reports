@@ -1,0 +1,13 @@
+We can generate html reports in Selenium
+First we should install html plugin
+To install
+    Go to cmd prompt --> pip install pytest-html
+
+
+To generate the reports
+    Right click --> open in --> terminal --> pytest test_filename.py -vs --html="report_name.html"
+    The above command will store the html report in the same package as the pytest file
+
+To store the reports in other location
+    Right click --> open in --> terminal --> pytest test_filename.py -vs --html="location\report_name.html"
+
